@@ -19,6 +19,9 @@ function App() {
   const [disabled, setDisabled] = useState(false);
 
   const startNewGame = () => {
+    setFirstTurn(null);
+    setSecondTurn(null);
+
     const randomCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random(), matched: false }));
@@ -27,6 +30,10 @@ function App() {
     setTurns(0);
     console.log(randomCards);
   };
+
+  useEffect(() => {
+    startNewGame();
+  }, []);
 
   //check if both selected
   const handleTurns = (card) => {
@@ -86,6 +93,7 @@ function App() {
           );
         })}
       </div>
+      <p>Turn - {turns}</p>
     </div>
   );
 }
