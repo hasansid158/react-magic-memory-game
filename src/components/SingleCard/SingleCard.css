@@ -1,0 +1,20 @@
+.singleCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 10px;
+  padding: 0px 5px;
+  position: relative;
+}
+
+.singleCard img {
+  display: block;
+  width: 100%;
+  border: 2px solid gainsboro;
+  border-radius: 6px;
+}
+/*# sourceMappingURL=SingleCard.css.map */
