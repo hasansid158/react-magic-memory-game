@@ -16,5 +16,10 @@
   width: 100%;
   border: 2px solid gainsboro;
   border-radius: 6px;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
 /*# sourceMappingURL=SingleCard.css.map */
