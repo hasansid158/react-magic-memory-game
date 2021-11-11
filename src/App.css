@@ -16,3 +16,13 @@ button:hover {
   background: #c23866;
   color: #fff;
 }
+
+.cardContainer {
+  margin-top: 40px;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

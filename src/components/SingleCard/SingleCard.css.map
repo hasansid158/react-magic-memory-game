@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACV,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,aAAa,EAAE,IAAI;EACnB,OAAO,EAAE,OAAO;EAChB,QAAQ,EAAE,QAAQ;CAQnB;;AAbD,AAOE,WAPS,CAOT,GAAG,CAAC;EACF,OAAO,EAAE,KAAK;EACd,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,GAAG,CAAC,KAAK,CAAC,SAAkB;EACpC,aAAa,EAAE,GAAG;CACnB",
+    "sources": [
+        "SingleCard.scss"
+    ],
+    "names": [],
+    "file": "SingleCard.css"
+}
