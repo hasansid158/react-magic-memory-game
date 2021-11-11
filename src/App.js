@@ -16,6 +16,7 @@ function App() {
   const [turns, setTurns] = useState(0);
   const [firstTurn, setFirstTurn] = useState(null);
   const [secondTurn, setSecondTurn] = useState(null);
+  const [disabled, setDisabled] = useState(false);
 
   const startNewGame = () => {
     const randomCards = [...cardImages, ...cardImages]
@@ -35,10 +36,12 @@ function App() {
   //compare selected card
   useEffect(() => {
     if (firstTurn && secondTurn) {
+      setDisabled(true);
       setTurns((prevTurn) => prevTurn + 1);
 
       if (firstTurn.src === secondTurn.src) {
         console.log("Matched !");
+        resetTurn(0);
         setCards((prevCards) => {
           return prevCards.map((card) => {
             if (card.src === firstTurn.src) {
@@ -50,17 +53,17 @@ function App() {
         });
       } else {
         console.log("didnt match !");
+        resetTurn(800);
       }
-
-      resetTurn();
     }
   }, [firstTurn, secondTurn]);
 
-  const resetTurn = () => {
+  const resetTurn = (timer) => {
     setTimeout(() => {
       setFirstTurn(null);
       setSecondTurn(null);
-    }, 700);
+      setDisabled(false);
+    }, timer);
   };
 
   return (
@@ -78,6 +81,7 @@ function App() {
               flipped={
                 card === firstTurn || card === secondTurn || card.matched
               }
+              disabled={disabled}
             />
           );
         })}
