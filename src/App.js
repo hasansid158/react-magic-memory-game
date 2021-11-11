@@ -20,33 +20,47 @@ function App() {
   const startNewGame = () => {
     const randomCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
-      .map((card) => ({ ...card, id: Math.random() }));
+      .map((card) => ({ ...card, id: Math.random(), matched: false }));
 
     setCards(randomCards);
     setTurns(0);
     console.log(randomCards);
   };
 
+  //check if both selected
   const handleTurns = (card) => {
     firstTurn ? setSecondTurn(card) : setFirstTurn(card);
   };
 
+  //compare selected card
   useEffect(() => {
     if (firstTurn && secondTurn) {
       setTurns((prevTurn) => prevTurn + 1);
+
       if (firstTurn.src === secondTurn.src) {
         console.log("Matched !");
+        setCards((prevCards) => {
+          return prevCards.map((card) => {
+            if (card.src === firstTurn.src) {
+              return { ...card, matched: true };
+            } else {
+              return card;
+            }
+          });
+        });
       } else {
         console.log("didnt match !");
       }
+
       resetTurn();
-      console.log(turns);
     }
   }, [firstTurn, secondTurn]);
 
   const resetTurn = () => {
-    setFirstTurn(null);
-    setSecondTurn(null);
+    setTimeout(() => {
+      setFirstTurn(null);
+      setSecondTurn(null);
+    }, 700);
   };
 
   return (
@@ -57,7 +71,14 @@ function App() {
       <div className="cardContainer">
         {cards.map((card) => {
           return (
-            <SingleCard key={card.id} card={card} handleTurns={handleTurns} />
+            <SingleCard
+              key={card.id}
+              card={card}
+              handleTurns={handleTurns}
+              flipped={
+                card === firstTurn || card === secondTurn || card.matched
+              }
+            />
           );
         })}
       </div>

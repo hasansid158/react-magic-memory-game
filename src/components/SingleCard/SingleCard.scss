@@ -1,9 +1,33 @@
 .singleCard {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
-  padding: 0px 5px;
+  margin: 0px 5px 15px 5px;
   position: relative;
+
+  .front {
+    position: absolute;
+    transform: rotateY(90deg);
+    transition: 0.15s ease-in;
+    transition-delay: 0s;
+  }
+
+  .flipped {
+    transition: 0.15s ease-in;
+    transform: rotateY(0deg);
+    transition-delay: 0.2s;
+  }
+
+  .back {
+    transform: rotateY(0deg);
+    transition: 0.15s ease-in;
+    transition-delay: 0.2s;
+  }
+
+  .backFlipped {
+    transition: 0.15s ease-in;
+    transform: rotateY(90deg);
+    transition-delay: 0s;
+  }
 
   img {
     display: block;
