@@ -6,9 +6,45 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-bottom: 10px;
-  padding: 0px 5px;
+  margin: 0px 5px 15px 5px;
   position: relative;
+}
+
+.singleCard .front {
+  position: absolute;
+  -webkit-transform: rotateY(90deg);
+          transform: rotateY(90deg);
+  -webkit-transition: 0.15s ease-in;
+  transition: 0.15s ease-in;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+.singleCard .flipped {
+  -webkit-transition: 0.15s ease-in;
+  transition: 0.15s ease-in;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.singleCard .back {
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  -webkit-transition: 0.15s ease-in;
+  transition: 0.15s ease-in;
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.singleCard .backFlipped {
+  -webkit-transition: 0.15s ease-in;
+  transition: 0.15s ease-in;
+  -webkit-transform: rotateY(90deg);
+          transform: rotateY(90deg);
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
 }
 
 .singleCard img {
@@ -16,5 +52,10 @@
   width: 100%;
   border: 2px solid gainsboro;
   border-radius: 6px;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
 /*# sourceMappingURL=SingleCard.css.map */
