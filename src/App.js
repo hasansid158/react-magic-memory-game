@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./App.css";
 import SingleCard from "./components/SingleCard/SingleCard";
 
 function App() {
-  const cardImages = [
-    { src: "/img/helmet-1.png" },
-    { src: "/img/potion-1.png" },
-    { src: "/img/ring-1.png" },
-    { src: "/img/scroll-1.png" },
-    { src: "/img/shield-1.png" },
-    { src: "/img/sword-1.png" },
-  ];
-
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
   const [firstTurn, setFirstTurn] = useState(null);
   const [secondTurn, setSecondTurn] = useState(null);
   const [disabled, setDisabled] = useState(false);
 
-  const startNewGame = () => {
+  const startNewGame = useCallback(() => {
+    const cardImages = [
+      { src: "/img/helmet-1.png" },
+      { src: "/img/potion-1.png" },
+      { src: "/img/ring-1.png" },
+      { src: "/img/scroll-1.png" },
+      { src: "/img/shield-1.png" },
+      { src: "/img/sword-1.png" },
+    ];
+
     setFirstTurn(null);
     setSecondTurn(null);
 
@@ -28,12 +28,11 @@ function App() {
 
     setCards(randomCards);
     setTurns(0);
-    console.log(randomCards);
-  };
+  }, []);
 
   useEffect(() => {
     startNewGame();
-  }, []);
+  }, [startNewGame]);
 
   //check if both selected
   const handleTurns = (card) => {
@@ -93,7 +92,7 @@ function App() {
           );
         })}
       </div>
-      <p>Turn - {turns}</p>
+      <span>Turn - {turns}</span>
     </div>
   );
 }
